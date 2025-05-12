@@ -1,6 +1,6 @@
-import { Country } from "@/types/country"
-import Image from "next/image"
-import Link from "next/link"
+import { Country } from "@/types/country";
+import Image from "next/image";
+import Link from "next/link";
 
 export const CountryCard = ({ country }: { country: Country }) => {
     return (

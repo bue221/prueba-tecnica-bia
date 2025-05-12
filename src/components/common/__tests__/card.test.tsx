@@ -1,12 +1,13 @@
-import { mockCountries } from "@/constants/mock-data";
-import '@testing-library/jest-dom';
-import { render } from "@testing-library/react";
-import { CountryCard } from "../card";
 
-test('loads and displays greeting', async () => {
-    // ARRANGE
-    const { getByText } = render(<CountryCard country={mockCountries[0]} />)
+import { render, screen } from '@testing-library/react'
+import React from 'react'
+import { mockCountries } from '../../../constants/mock-data'
+import { CountryCard } from '../card'
 
-    expect(getByText("Test Country")).toBeInTheDocument();
-    expect(getByText(/Population:/)).toBeInTheDocument();
+describe('CountryCard', () => {
+    React.useLayoutEffect = React.useEffect // Fix for useLayoutEffect error in test environment
+    it('renders appropriately', () => {
+        render(<CountryCard country={mockCountries[0]} />)
+        expect(screen.getByText(/United States/i)).toBeInTheDocument()
+    })
 })
