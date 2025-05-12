@@ -24,8 +24,9 @@ const fetchBorderCountries = async (codes: string[]): Promise<string[]> => {
     return data.map((c: Country) => c.name.common);
 };
 
-export default async function CountryPage({ params }: { params: { name: string } }) {
-    const country = await fetchCountry(params.name);
+export default async function CountryPage({ params }: { params: Promise<{ name: string }> }) {
+    const paramsData = await params;
+    const country = await fetchCountry(paramsData.name);
     if (!country) notFound();
 
     const nativeName = country.name.nativeName
