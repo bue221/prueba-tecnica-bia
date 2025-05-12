@@ -41,8 +41,8 @@ export default async function CountryPage({ params }: { params: { name: string }
     return (
         <div className="container mx-auto px-6 py-10">
             <div className="flex justify-between items-center mb-16">
-                <Link href="/" className="">
-                    <Button variant="outline" className="flex items-center gap-2 w-[100px] cursor-pointer">
+                <Link href="/" aria-label="Back">
+                    <Button variant="outline" className="flex items-center gap-2 w-[100px] cursor-pointer" >
                         <ArrowLeft className='size-4' />
                         Back
                     </Button>
@@ -57,7 +57,7 @@ export default async function CountryPage({ params }: { params: { name: string }
                     className="rounded shadow object-cover bg-cover"
                 />
                 <div>
-                    <h1 className="text-4xl font-bold mb-6">{country.name.common}</h1>
+                    <h1 className="text-4xl font-bold mb-6" aria-label='Country Name'>{country.name.common}</h1>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                         <div>

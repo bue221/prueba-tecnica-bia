@@ -7,10 +7,8 @@ export default function CountrySkeleton() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {/* Bandera */}
                 <div className="w-full h-64 bg-gray-300 dark:bg-gray-600 rounded shadow" />
 
-                {/* Detalles */}
                 <div className="flex flex-col gap-4">
                     <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-1/2" />
 
@@ -29,7 +27,6 @@ export default function CountrySkeleton() {
                         </div>
                     </div>
 
-                    {/* Fronteras */}
                     <div className="mt-8 space-y-2">
                         <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-40" />
                         <div className="flex gap-2">
