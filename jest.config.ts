@@ -1,24 +1,22 @@
+/**
+ * For a detailed explanation regarding each configuration property, visit:
+ * https://jestjs.io/docs/configuration
+ */
+
 import type { Config } from 'jest';
-import { defaults } from 'jest-config';
+import nextJest from 'next/jest.js';
+
+const createJestConfig = nextJest({
+  dir: './',
+})
 
 const config: Config = {
-    moduleFileExtensions: [...defaults.moduleFileExtensions, 'mts'],
-    testEnvironment: 'jsdom',
-    transform: {
-        '^.+\\.(ts|tsx)$': ['ts-jest', {
-            tsconfig: 'tsconfig.json'
-        }]
-    },
-    globals: {
-        'ts-jest': {
-            tsconfig: 'tsconfig.json',
-            useESM: false,
-        },
-    },
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-    moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/src/$1',
-    },
+  clearMocks: true,
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageProvider: "v8",
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
-export default config;
+export default createJestConfig(config)
