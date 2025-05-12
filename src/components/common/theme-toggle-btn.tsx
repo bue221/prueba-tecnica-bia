@@ -10,9 +10,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useMemo } from "react"
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
+
+  const themeName = useMemo(() => {
+    return theme || "light"
+  }, [theme])
 
 
   return (
@@ -21,7 +26,7 @@ export function ModeToggle() {
         <Button variant="outline">
           <Sun className="h-[1.2rem] w-[1.2rem] dark:hidden" />
           <Moon className="h-[1.2rem] w-[1.2rem] dark:block hidden" />
-          <span className="capitalize">{`${theme} Mode`}</span>
+          <span className="capitalize">{`${themeName} Mode`}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

@@ -2,6 +2,7 @@ import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 
@@ -32,12 +33,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+          <main className="flex flex-col min-h-screen bg-gray-100 dark:bg-[#212D37]">
             <Navbar />
-            <div className="flex flex-1 dark:bg-gray-900">
+            <div className="flex flex-1 bg-[#FAFAFA] dark:bg-[#212D37]">
               {children}
             </div>
-          </div>
+          </main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
