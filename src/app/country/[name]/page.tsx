@@ -79,12 +79,17 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
                             <h2 className="font-semibold mb-2">Border Countries:</h2>
                             <div className="flex flex-wrap gap-2">
                                 {borders.map((b) => (
-                                    <span
+                                    <Link
                                         key={b}
-                                        className="px-3 py-1 border rounded shadow text-sm bg-white hover:bg-gray-100 dark:bg-[#2B3743] dark:hover:bg-[#3B4A6B] transition duration-200 cursor-pointer"
-                                    >
-                                        {b}
-                                    </span>
+                                        href={`/country/${b}`}
+                                        aria-label={`Border country ${b}`}>
+                                        <span
+                                            key={b}
+                                            className="px-3 py-1 border rounded shadow text-sm bg-white hover:bg-gray-100 dark:bg-[#2B3743] dark:hover:bg-[#3B4A6B] transition duration-200 cursor-pointer"
+                                        >
+                                            {b}
+                                        </span>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
