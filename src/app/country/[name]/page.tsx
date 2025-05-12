@@ -1,6 +1,9 @@
 
+import { Button } from '@/components/ui/button';
 import { Country } from '@/types/country';
+import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 const fetchCountry = async (name: string): Promise<Country | null> => {
@@ -18,7 +21,7 @@ const fetchBorderCountries = async (codes: string[]): Promise<string[]> => {
     const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}`);
     if (!res.ok) return [];
     const data = await res.json();
-    return data.map((c: any) => c.name.common);
+    return data.map((c: Country) => c.name.common);
 };
 
 export default async function CountryPage({ params }: { params: { name: string } }) {
@@ -37,22 +40,22 @@ export default async function CountryPage({ params }: { params: { name: string }
 
     return (
         <div className="container mx-auto px-6 py-10">
-            <button
-                onClick={() => history.back()}
-                className="mb-8 px-4 py-2 rounded shadow bg-white border hover:bg-gray-100"
-            >
-                ← Back
-            </button>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="flex justify-between items-center mb-16">
+                <Link href="/" className="">
+                    <Button variant="outline" className="flex items-center gap-2 w-[100px] cursor-pointer">
+                        <ArrowLeft className='size-4' />
+                        Back
+                    </Button>
+                </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-28 justify-center items-center">
                 <Image
                     src={country.flags.png}
                     alt={`Flag of ${country.name.common}`}
                     width={640}
-                    height={480}
-                    className="rounded shadow"
+                    height={740}
+                    className="rounded shadow object-cover bg-cover"
                 />
-
                 <div>
                     <h1 className="text-4xl font-bold mb-6">{country.name.common}</h1>
 
@@ -78,7 +81,7 @@ export default async function CountryPage({ params }: { params: { name: string }
                                 {borders.map((b) => (
                                     <span
                                         key={b}
-                                        className="px-3 py-1 border rounded shadow text-sm bg-white hover:bg-gray-100"
+                                        className="px-3 py-1 border rounded shadow text-sm bg-white hover:bg-gray-100 dark:bg-[#2B3743] dark:hover:bg-[#3B4A6B] transition duration-200 cursor-pointer"
                                     >
                                         {b}
                                     </span>

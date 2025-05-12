@@ -28,4 +28,5 @@ export interface Country {
         svg: string;
     };
     borders?: string[];
+    tld?: string[];
 }
