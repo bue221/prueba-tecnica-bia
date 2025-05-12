@@ -1,7 +1,9 @@
 import { expect, test } from '@playwright/test';
 
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+
 test('change theme', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto(BASE_URL);
 
   // Click the theme toggle button
   const themeToggleButton = page.locator('button[aria-label="Toggle theme"]');
@@ -18,7 +20,7 @@ test('change theme', async ({ page }) => {
 });
 
 test('search for a specific country', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto(BASE_URL);
 
   // Type a country name in the search input
   const searchInput = page.locator('input[placeholder="Search for a country..."]');
@@ -30,7 +32,7 @@ test('search for a specific country', async ({ page }) => {
 });
 
 test('filter by region', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto(BASE_URL);
 
   // Open the region filter dropdown and select a region
   const regionDropdown = page.locator('button[aria-label="Filter by Region"]');
@@ -44,7 +46,7 @@ test('filter by region', async ({ page }) => {
 });
 
 test('navigate to country detail', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto(BASE_URL);
 
   // Click on a country card
   const countryCard = page.locator('text=Germany');
@@ -61,7 +63,7 @@ test('navigate to country detail', async ({ page }) => {
 });
 
 test('return to home from detail', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto(BASE_URL);
 
   // Navigate to a country detail page
   const countryCard = page.locator('text=Germany');
