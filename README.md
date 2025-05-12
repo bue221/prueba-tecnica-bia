@@ -42,6 +42,10 @@ yarn dev
 
 1. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
+1. Ejecuta la pila de pruebas end to end:
+
+```npx playwright test --ui```
+
 ## API utilizada
 
 Se utilizó la API pública [REST Countries](https://restcountries.com/) para obtener información sobre los países. Las rutas principales implementadas en el proyecto son:
