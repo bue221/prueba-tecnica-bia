@@ -15,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx", // Update to enable React's automatic runtime
+    "jsx": "preserve", // Update to enable React's automatic runtime
     "incremental": true,
     "plugins": [
       {
