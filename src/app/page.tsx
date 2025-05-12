@@ -18,7 +18,7 @@ export default function Home() {
       const params = new URLSearchParams({ region });
       if (name) params.append('name', name);
 
-      const res = await fetch(`/api/countries?${params.toString()}`);
+      const res = await fetch(`/api/countries?${params.toString()}`, { next: { revalidate: 60 } });
       const data: Country[] = await res.json();
       setCountries(data);
       setLoading(false);

@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${nunitoSans.variable} antialiased h-full`}
+        className={`${nunitoSans.variable} antialiased h-full bg-[#FAFAFA] dark:bg-[#212D37]`}
       >
         <ThemeProvider
           attribute="class"
@@ -57,7 +57,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex flex-col min-h-screen bg-[#FAFAFA] dark:bg-[#212D37]">
+          <main className="flex flex-col min-h-screen">
             <Navbar />
             <div className="flex flex-1">
               {children}
