@@ -20,7 +20,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install -g pnpm && pnpm install
 
       - name: Run Jest tests
         run: pnpm test
