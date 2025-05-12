@@ -53,7 +53,7 @@ export default async function CountryPage({ params }: { params: { name: string }
                     src={country.flags.png}
                     alt={`Flag of ${country.name.common}`}
                     width={640}
-                    height={740}
+                    height={200}
                     className="rounded shadow object-cover bg-cover"
                 />
                 <div>
@@ -73,7 +73,6 @@ export default async function CountryPage({ params }: { params: { name: string }
                             <p><strong>Languages:</strong> {languages}</p>
                         </div>
                     </div>
-
                     {borders.length > 0 && (
                         <div className="mt-8">
                             <h2 className="font-semibold mb-2">Border Countries:</h2>
