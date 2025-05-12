@@ -51,6 +51,12 @@ export default function Home() {
             country={country}
           />
         ))}
+        {!loading && (countries?.length ?? 0) === 0 && (
+          <div className="flex flex-col justify-center items-center w-full h-full">
+            <h1 className="text-2xl font-bold text-gray-800">No countries found</h1>
+            <p className="text-gray-600">Try a different search or filter.</p>
+          </div>
+        )}
       </div>
     </div >
   );
